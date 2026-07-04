@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="A highly optimized, state-driven multi-step subscription form built with Vanilla JavaScript, focusing on $O(1)$ validation, clean architecture, and responsive UI.">
+    <meta name="keywords"
+        content="Multi-step form, Vanilla JavaScript, Frontend Mentor, Frontend System Design, Form Validation, Clean Code, Responsive Web Design, Salma Abdelrhman, Portfolio Project">
+    <link rel="icon" href="images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Multi-step form</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="main-grid">
+        <div class="grid-left">
+        <header aria-labelledby="form-title">
+            <h1 class="sr-only" id="form-title">Multi-Step Subscription Form</h1>
+        </header>
+        <aside aria-label="form steps" class="form-steps">
+            <div class="flex_steps active" data-step="1" aria-current="step">
+                <div class="step-number"><span>1</span></div>
+                <div class="step-text">
+                    <p>STEP 1</p>
+                    <h3>YOUR INFO</h3>
+                </div>
+            </div>
+            <div class="flex_steps" data-step="2">
+                <div class="step-number"><span>2</span></div>
+                <div class="step-text">
+                    <p>STEP 2</p>
+                    <h3>SELECT PLAN</h3>
+                </div>
+            </div>
+            <div class="flex_steps" data-step="3">
+                <div class="step-number"><span>3</span></div>
+                <div class="step-text">
+                    <p>STEP 3</p>
+                    <h3>ADD-ONS</h3>
+                </div>
+            </div>
+            <div class="flex_steps" data-step="4">
+                <div class="step-number"><span>4</span></div>
+                <div class="step-text">
+                    <p>STEP 4</p>
+                    <h3>SUMMARY</h3>
+                </div>
+            </div>
+        </aside>
+        </div>
+        <div class="grid-right">
+        <main>
+            <form id="multiStepForm"novalidate>
+            <section class="step-section active" id="step-1" aria-labelledby="1ststep-heading">
+                <h2 id="1ststep-heading">Personal info</h2>
+                <p>Please provide your name, email address, and phone number.</p>
+                <label for="username">Name</label>
+                <input type="text" id="username" autocomplete="name" placeholder="e.g. Stephen King" aria-describedby="username-error">
+                <span class="error-message" id="username-error" role="alert" aria-live="polite"></span>
+                <label for="userEmail">Email Address</label>
+                <input 
+        type="email" 
+        id="userEmail" 
+        name="email"
+        placeholder="e.g. stephenking@lorem.com" 
+        autocomplete="email"
+        required
+        aria-describedby="email-error"
+    >
+    <span class="error-message" id="email-error" role="alert" aria-live="polite"></span>
+                <label for="userPhone">Phone Number</label>
+                <input 
+        type="tel" 
+        id="userPhone" 
+        name="phone"
+        placeholder="e.g. +1 234 567 890" 
+        autocomplete="tel"
+        required
+        aria-describedby="tel-error"
+    >
+    <span class="error-message" id="tel-error" role="alert" aria-live="polite"></span>
+            </section>
+            <section class="step-section" id="step-2" aria-labelledby="2ndstep-heading">
+                <h2 id="2ndstep-heading">Select your plan</h2>
+                <p>You have the option of monthly or yearly billing.</p>
+  <fieldset class="plans-container">
+    <legend class="sr-only">Choose a subscription plan</legend>
+    <label class="plan-card active">
+        <input type="radio" name="plan" value="arcade" checked class="sr-only">
+        <div class="plan-details">
+            <div>
+            <img src="images/icon-arcade.svg" alt="">
+            </div>
+            <div>
+            <h3>Arcade</h3>
+            <span class="plan-price" data-monthly="$9/mo" data-yearly="$90/yr">$9/mo</span>
+            <p class="yearly-bonus hidden">2 months free</p>
+            </div>
+        </div>
+    </label>
+
+    <label class="plan-card">
+        <input type="radio" name="plan" value="advanced" class="sr-only">
+        <div class="plan-details">
+            <div>
+            <img src="images/icon-advanced.svg" alt="">
+            </div>
+            <div>
+            <h3>Advanced</h3>
+            <span class="plan-price" data-monthly="$12/mo" data-yearly="$120/yr">$12/mo</span>
+            <p class="yearly-bonus hidden">2 months free</p>
+            </div>
+        </div>
+    </label>
+
+    <label class="plan-card">
+        <input type="radio" name="plan" value="pro" class="sr-only">
+        <div class="plan-details">
+            <div>
+            <img src="images/icon-pro.svg" alt="">
+            </div>
+            <div>
+            <h3>Pro</h3>
+            <span class="plan-price" data-monthly="$15/mo" data-yearly="$150/yr">$15/mo</span>
+            <p class="yearly-bonus hidden">2 months free</p>
+            </div>
+        </div>
+    </label>
+</fieldset>
+<div class="toggle-container">
+        <span id="label-monthly" class="toggle-label active">Monthly</span>
+        <label class="switch" for="billingToggle">
+            <input type="checkbox" id="billingToggle" role="switch" aria-checked="false">
+            <span class="slider round" aria-hidden="true"></span>
+        </label>
+        <span id="label-yearly" class="toggle-label">Yearly</span>
+    </div>
+            </section>
+            <section class="step-section" id="step-3" aria-labelledby="3rdstep-heading">
+                <h2 id="3rdstep-heading">Pick add-ons</h2>
+                <p>Add-ons help enhance your gaming experience.</p>
+                <div class="addons-container">
+    
+    <label class="addon-card">
+        <div class="addon-info">
+        <input type="checkbox" name="addons" value="online-service" id="addon-online">
+            <div class="addon-details">
+                <h3>Online service</h3>
+                <p>Access to multiplayer games</p>
+            </div>
+                    <span class="addon-price" data-monthly="+$1/mo" data-yearly="+$10/yr">+$1/mo</span>
+        </div>
+        </label>
+    <label class="addon-card">
+        <div class="addon-info">
+        <input type="checkbox" name="addons" value="larger-storage" id="addon-storage">
+            
+            <div class="addon-details">
+                <h3>Larger storage</h3>
+                <p>Extra 1TB of cloud save</p>
+            </div>
+                    <span class="addon-price" data-monthly="+$2/mo" data-yearly="+$20/yr"></span>
+
+        </div>
+    </label>
+
+    <label class="addon-card">
+        <div class="addon-info">
+            <input type="checkbox" name="addons" value="customizable-profile" id="addon-profile">
+            <div class="addon-details">
+                <h3>Customizable profile</h3>
+                <p>Custom theme on your profile</p>
+            </div>
+                    <span class="addon-price" data-monthly="+$2/mo" data-yearly="+$20/yr"></span>
+
+        </div>
+    </label>
+</div>
+            </section>
+            <section class="step-section" id="step-4" aria-labelledby="4thstep-heading">
+                <h2 id="4thstep-heading">Finishing up</h2>
+                <p>Double-check everything looks OK before confirming.</p>
+                <div class="summary-container">
+    <div class="summary-plan-wrapper">
+        <div class="selected-plan-info">
+            <h3 id="summaryPlanInfo"></h3>
+            <button type="button" id="change-plan-btn" class="btn-change">Change</button>
+        </div>
+        <span class="summary-plan-price" id="summary-plan-price"></span>
+    </div>
+    <div class="summary-addons-list" id="summary-addons-list">
+        </div>
+</div>
+
+<div class="total-container" id="total-final-price">
+
+</div>
+            </section>
+            <section class="step-section hidden" id="step-thank-you" aria-labelledby="confirmation">
+    <div class="thank-you-container">
+        <div class="confirm">
+<img src="images/icon-thank-you.svg" alt="">
+        </div>
+        <div class="thnx-meaasge">
+        <h2 id="confirmation">Thank you!</h2>
+        <p>
+           <span class="d-block"> Thanks for confirming your subscription! We hope you have </span>
+            <span class="d-block">fun using our platform. If you ever need support, please feel</span> 
+            free to email us at <a href="mailto:support@loremgaming.com">support@loremgaming.com</a>.
+        </p>
+        </div>
+    </div>
+</section>
+            <div class="form-buttons">
+        <button type="button" class="btn-back prevBtn">Go Back</button>
+        <button type="button" class="btn-next nextBtn">Next Step</button>
+    </div>
+            </form>
+        </main>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>

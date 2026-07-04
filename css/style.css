@@ -1,0 +1,610 @@
+:root {
+    --background: #fff;
+    --fontcolor: #14325c;
+    --paragraph: #abacb2;
+    --btn: #03285a
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #eef5ff;
+}
+
+/* header */
+.sr-only {
+    position: absolute;
+    width: 0.0625rem;
+    height: 0.0625rem;
+    padding: 0;
+    margin: -0.0625rem;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* main page */
+.page-wrapper {
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.25rem;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 17.1875rem 1fr;
+    min-height: 37.5rem;
+    background-color: var(--background);
+    max-width: 75%;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.9375rem 2.5rem rgba(0, 0, 0, 0.05);
+}
+
+.step-section {
+    display: none;
+}
+
+.step-section.active {
+    display: block;
+}
+
+.grid-left {
+    background-image: url('../images/bg-sidebar-desktop.svg');
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 0.625rem;
+    padding: 2.5rem 2rem;
+}
+
+.flex_steps {
+    display: flex;
+    gap: 1.5rem
+}
+
+h2 {
+    font-size: 1.7rem;
+    font-weight: 800;
+    margin-top: 1rem;
+    color: var(--fontcolor);
+}
+
+.step-section.active p {
+    color: var(--paragraph);
+}
+
+.step-section.active label {
+    display: block;
+}
+
+.grid-right {
+    padding: 1.5rem 5rem 1rem 5rem;
+}
+
+#multiStepForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
+}
+
+/* buttons */
+.form-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: auto;
+    padding-top: 2rem;
+}
+
+.btn-next,
+.btn-back {
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    font-family: 'Ubuntu', sans-serif;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.btn-next {
+    background-color: var(--btn);
+    color: #f9ffff;
+    margin-left: auto;
+    padding: 0.875rem 1.5rem;
+}
+
+.btn-back {
+    color: var(--paragraph);
+    margin-right: auto;
+    background-color: transparent;
+}
+.btn-back{
+    display:none
+}
+/* aside */
+.flex_steps {
+    margin-bottom: 2rem;
+}
+
+.step-number span {
+    color: #fff;
+    font-weight: 600;
+    border-radius: 50%;
+    border: 2px solid #c4bfff;
+    padding-inline: 0.8rem;
+    padding-block: 0.5rem;
+}
+
+.step-number {
+    margin-top: 0.5rem;
+}
+
+.flex_steps .step-text h3 {
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.flex_steps .step-text p {
+    color: #928fff;
+}
+.flex_steps.active .step-number span{
+    background-color: #bcdefc;
+    color:var(--fontcolor)
+}
+/* 1st step */
+#step-1 p {
+    margin-top: 0.4rem;
+    margin-bottom: 3rem;
+}
+
+#step-1 label {
+    color: var(--fontcolor);
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+#step-1 input {
+    padding: 0.8rem;
+    border-radius: 0.4rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    border: 0.0625rem solid #e6e6ea;
+}
+#step-1 input:focus{
+    border-color:#6a60ef;
+    outline: none;
+}
+#step-1 input::placeholder {
+    color: #9899a1;
+    font-weight: 600;
+}
+.error-message{
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 0;
+    margin-bottom:1rem;
+    font-weight: 500;
+}
+/* 2nd step */
+#step-2 p {
+    margin-top: 0.4rem;
+    margin-bottom: 3rem;
+}
+
+#step-2 h3 {
+    font-size: 1rem;
+    color: var(--fontcolor);
+    margin-bottom: 0.5rem;
+}
+
+.plan-price {
+    color: var(--paragraph);
+    font-weight: 500;
+
+}
+
+.plans-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+    gap: 1rem;
+    border: none;
+}
+
+.plan-card {
+    border: 0.1rem solid #e6e6ea;
+    border-radius: 0.4rem;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    padding-right: 3.5rem;
+    margin-left: 0;
+    padding-left: 1rem;
+    cursor: pointer;
+}
+
+.plan-card:has(input:checked) {
+    background-color: #f8f9fe;
+    border-color: #827ebd;
+}
+
+.plan-details img {
+    margin-bottom: 2rem;
+}
+
+.toggle-container {
+    margin-top: 2.5rem;
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 2.5rem;
+    height: 1.25rem;
+}
+
+.switch input {
+    display: block;
+    position: absolute;
+}
+
+#billingToggle {
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.slider {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 2rem;
+    background-color: #14325c;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    top: 0.1rem;
+    left: 0.1rem;
+}
+
+#label-monthly {
+    margin-right: 2rem;
+   color:var(--paragraph)
+
+}
+
+#label-yearly {
+    margin-left: 2rem;
+    color: var(--paragraph);
+}
+
+#label-monthly,
+#label-yearly {
+    font-weight: 600;
+}
+
+.switch input:checked+.slider::before {
+    transform: translateX(1.25rem);
+}
+
+.yearly-bonus {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+/* 3rd step */
+#step-3 {
+    width: 100%;
+}
+
+#step-3 h2+p {
+    margin-top: 0.4rem;
+    margin-bottom: 3rem;
+}
+
+#step-3 h3 {
+    color: var(--fontcolor);
+    font-size: 1rem;
+}
+
+.addon-card {
+    width: 100%;
+    margin-bottom: 2rem;
+    border: 0.1rem solid #abacb2;
+    border-radius: 0.4rem;
+}
+
+.addon-info {
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    gap: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.addon-card:has(input:checked) {
+    background-color: #f8f9fe;
+    border-color: #827ebd;
+}
+
+.addon-card .addon-price {
+    margin-left: auto;
+    color: #6a60ef;
+    font-weight: 500;
+}
+
+.addon-info input[type="checkbox"] {
+    width: 1.3rem;
+    height: 1.3rem;
+    cursor: pointer;
+    outline: none;
+    accent-color: #6a60ef;
+}
+
+/* 4th step */
+#step-4 h2+p {
+    margin-top: 0.4rem;
+    margin-bottom: 3rem;
+}
+
+#step-4 h3 {
+    font-size: 1rem;
+}
+
+.summary-plan-wrapper,
+.total-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.summary-plan-wrapper {
+    color: var(--fontcolor);
+}
+
+.total-container #total-label {
+    color: var(--paragraph);
+}
+
+.total-container {
+    margin-top: 2rem;
+}
+
+.total-price {
+    color: #6a60ef;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.summary-plan-price {
+    font-weight: 600;
+}
+
+.btn-change {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    width: fit-content;
+    color: #9699ab;
+    text-decoration: underline;
+    font-size: 0.875rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+.btn-change:hover,
+.btn-change:focus{
+    color: #6a60ef;
+}
+
+.summary-plan-wrapper {
+    border-bottom: 0.07rem solid #e9eaee;
+}
+
+.summary-container {
+    border: 0.07rem solid #efefef;
+    border-radius: 0.4rem;
+    padding-block: 1.5rem;
+    padding-inline: 0.8rem;
+    background-color: #f8f9fe;
+}
+.summary-addon-row{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+.addon-name{
+    color: var(--paragraph);
+}
+.addon-price{
+    color: #14325c;
+    font-weight: 500;
+}
+/* confirmation */
+.thank-you-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 30%;
+}
+
+.thnx-meaasge h2 {
+    margin-bottom: 1.5rem;
+}
+
+.d-block {
+    display: block;
+    line-height: 1.5;
+}
+.thnx-meaasge p a{
+  text-decoration: none;
+  color: var(--paragraph);
+  cursor: pointer;
+}
+@media(width<=1024px){
+     /* global */
+    body {
+        background-color: var(--background);
+    }
+
+    .page-wrapper {
+        align-items: flex-start;
+        padding: 0;
+        min-height: 100dvh;
+    }
+
+    #step-1 h2+p,
+    #step-3 h2+p,
+    #step-2 h2+p {
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .main-grid {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        border-radius: 0;
+        position: relative;
+        background-color: #eef5ff;
+    }
+
+    .grid-left {
+        height: 10rem;
+        padding: 2rem 3rem 0;
+        background-image: url('../images/bg-sidebar-mobile.svg');
+    }
+
+    .grid-right {
+        padding: 1rem;
+        position: absolute;
+        top: 5rem;
+        left: 0;
+        right: 0;
+    }
+
+    #multiStepForm {
+        background-color: var(--background);
+        border-radius: 0.625rem;
+        box-shadow: 0 0.9375rem 2.5rem rgba(0, 0, 0, 0.08);
+        padding: 1.5rem;
+    }
+
+    .step-text {
+        display: none;
+    }
+
+    .form-steps {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .form-buttons {
+        position: absolute;
+        bottom: -6rem;
+        left: 0;
+        right: 0;
+        padding: 1rem 1.5rem;
+        margin-top: 0;
+        margin-top: auto;
+    }
+
+    /* 2nd step */
+    .plans-container {
+        display: block;
+    }
+
+.plan-card {
+    padding: 0.5rem 0.5rem 1rem 0.5rem;
+    margin-bottom: 1rem;
+}
+
+    .plan-details {
+        display: flex;
+        padding-top: 0.5rem;
+        padding-bottom: 0;
+        padding-left: 0.5rem;
+        gap: 1rem;
+    }
+
+    .plan-details img {
+        margin-bottom: 0;
+    }
+
+    .toggle-container {
+        margin-top: 1rem;
+        margin-bottom: 0.7rem;
+    }
+    .yearly-bonus {
+    height: 0;
+    padding-bottom: 0; 
+    margin-bottom: 0;
+}
+
+    /* 3rd step */
+.addon-card{
+    margin-bottom: 1rem;
+}
+.addon-info{
+    padding: 1rem;
+    grid-template-columns: auto 1fr auto;
+    gap:0.5rem
+}
+.addon-details p{
+    font-size: 0.83rem;
+}
+/* confirmation */
+.thnx-meaasge p{
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+.d-block{
+    display: inline;
+}
+.thank-you-container{
+    padding-top: 17%;
+    padding-bottom: 17%;
+}
+}
