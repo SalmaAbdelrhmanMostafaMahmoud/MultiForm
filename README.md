@@ -4,7 +4,7 @@ This repository contains a fully functional, responsive multi-step subscription 
 
 ## Live Demo
 You can view and test the live project at the following link:
-[Insert Your Netlify or GitHub Pages Link Here]
+[https://salmaabdelrhmanmostafamahmoud.github.io/MultiForm/]
 
 ---
 
@@ -33,7 +33,15 @@ If you want to run this project on your local machine, follow these steps:
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/your-username/your-repository-name.git](https://github.com/your-username/your-repository-name.git)
+git clone [https://github.com/SalmaAbdelrhmanMostafaMahmoud/MultiForm.git](https://github.com/SalmaAbdelrhmanMostafaMahmoud/MultiForm.git)
 
+2. **Navigate to the project directory:**
+   ```bash
+   cd MultiForm
+
+   3. **Open the application:**
+   * Simply open the `index.html` file in any modern web browser.
+   * Alternatively, if you use VS Code, right-click `index.html` and select "Open with Live Server".
+   
    ## Author
 * **Salma Abdelrhman** - [GitHub Profile](https://github.com/SalmaAbdelrhmanMostafaMahmoud)
